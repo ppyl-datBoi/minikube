@@ -1,0 +1,50 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: counter
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/counter
+  uid: cce47573-aeab-496c-9ecd-99bf1081e7c3
+  resourceVersion: '11286'
+  creationTimestamp: '2020-12-12T21:06:49Z'
+  labels:
+    app: counter
+  managedFields:
+    - manager: kubectl-expose
+      operation: Update
+      apiVersion: v1
+      time: '2020-12-12T21:06:49Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:externalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8080,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30407
+  selector:
+    app: counter
+  clusterIP: 10.108.140.86
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
